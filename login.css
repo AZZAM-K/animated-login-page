@@ -1,0 +1,217 @@
+:root {
+  --color1: #0a14a0;
+  --color2: #077fef;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(50, 50, 50);
+  min-height: 100vh;
+}
+.borderline {
+  position: absolute;
+  top: 0;
+  inset: 0;
+}
+.borderline::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  z-index: 1;
+  transform-origin: bottom right;
+  background: linear-gradient(
+    0deg,
+    var(--color1),
+    var(--color1),
+    var(--color1),
+    var(--color1),
+    var(--color1)
+  );
+  animation: animate 6s linear infinite;
+  animation-delay: -1.5s;
+}
+.borderline::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  z-index: 1;
+  transform-origin: bottom right;
+  background: linear-gradient(
+    0deg,
+    var(--color1),
+    var(--color1),
+    var(--color1),
+    var(--color1),
+    var(--color1)
+  );
+  animation: animate 6s linear infinite;
+  animation-delay: -4.5s;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  z-index: 1;
+  transform-origin: bottom right;
+  background: linear-gradient(
+    0deg,
+    var(--color2),
+    var(--color2),
+    var(--color2),
+    var(--color2),
+    var(--color2)
+  );
+  animation: animate 6s linear infinite;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 420px;
+  z-index: 1;
+  transform-origin: bottom right;
+  background: linear-gradient(
+    0deg,
+    var(--color2),
+    var(--color2),
+    var(--color2),
+    var(--color2),
+    var(--color2)
+  );
+  animation: animate 6s linear infinite;
+  animation-delay: 3s;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.box {
+  background-color: gray;
+  overflow: hidden;
+  position: relative;
+  width: 380px;
+  height: 420px;
+  border-radius: 8px;
+}
+form {
+  position: absolute;
+  inset: 4px;
+  background-color: rgb(33, 33, 33);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 50px 40px;
+  z-index: 2;
+}
+h2 {
+  color: var(--color2);
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.input-box {
+  position: relative;
+  margin-top: 35px;
+  width: 300px;
+}
+input {
+  position: relative;
+  outline: none;
+  border: none;
+  width: 100%;
+  box-shadow: none;
+  padding: 20px 10px 10px;
+  z-index: 10;
+  background: transparent;
+  color: rgb(78, 5, 5);
+  font-size: 1em;
+  transition: 0.5s;
+}
+input:valid ~ span,
+input:focus ~ span {
+  color: white;
+  font-size: 0.75em;
+  transform: translateY(-34px);
+}
+i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  background: white;
+  height: 2px;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+input:valid ~ i,
+input:focus ~ i {
+  height: 44px;
+}
+span {
+  position: absolute;
+  padding: 20px 0px 10px;
+  left: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  color: white;
+  font-size: 1em;
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+a {
+  color: var(--color2);
+  margin: 10px 0px;
+  text-decoration: none;
+  font-size: 0.75em;
+}
+a:hover {
+  color: white;
+}
+input[type="button"] {
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  border-radius: 8px;
+  width: 100px;
+  color: white;
+  background: var(--color1);
+  padding: 9px 25px;
+  margin: 30px 30%;
+  font-weight: 700;
+  cursor: pointer;
+}
+input[type="button"]:active {
+  opacity: 0.8;
+}
+#msg {
+  color: var(--color2);
+  font-weight: 600;
+  font-size: 1.8em;
+  text-shadow: 0 0 10px var(--color1), 0 0 20px var(--color2);
+  text-align: center;
+}
